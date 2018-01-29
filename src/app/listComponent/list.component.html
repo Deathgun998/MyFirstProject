@@ -1,0 +1,7 @@
+<div *ngFor="let item of items; let i=index">
+    <div>{{item.tipo}}</div>
+    <div>{{item.tipoe}}</div>
+    <div>{{item.tipoes}}</div>
+
+    <div *ngIf="i!=items.length-1">-------------------</div>
+</div>

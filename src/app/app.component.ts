@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Nuovofile } from './nuovofile';
+import { ListService } from './list.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,13 @@ import { Nuovofile } from './nuovofile';
 })
 export class AppComponent {
   title: string;
-  items: Nuovofile[] = [];
   valore: string;
+  items: Nuovofile[] = [];
 constructor(){
   this.title="cypo";
-  this.items.push(new Nuovofile("","",0));
-  this.items.push(new Nuovofile("esatto"));
-  this.items.push(new Nuovofile("maina","gioia"));
-  
-  
-  
+
+  let listService: ListService = new ListService();
+  this.items = listService.getNuovofile();
 }
 showValue(){
   alert("valore: "+ this.valore);
