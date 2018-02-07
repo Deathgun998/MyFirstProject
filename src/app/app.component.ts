@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Nuovofile } from './nuovofile';
 import { ListService } from './list.service';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent {
   title: string;
   valore: string;
   items: Nuovofile[] = [];
+  currentNuovofile : Nuovofile;
 constructor(){
   this.title="cypo";
 
@@ -21,5 +23,7 @@ showValue(){
   alert("valore: "+ this.valore);
   this.valore="";
 }
-
+  showItem(nuovofile: Nuovofile){
+    this.currentNuovofile = nuovofile;
+  }
 }
