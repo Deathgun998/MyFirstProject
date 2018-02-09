@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import {Nuovofile} from '../nuovofile'
+import { ComunicatorService } from '../comunicator.service';
 @Component({
-  selector: 'app-detail',
+  selector: 'detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class DetailComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+export class DetailComponent {
+   currentNuovofile : Nuovofile;
+  constructor(private comunicatorService:ComunicatorService ) {
+   
+      this.comunicatorService.mySubject$.subscribe( (newValue: Nuovofile) => {  
+      this.currentNuovofile = newValue;
+      }); 
+   }
   }
 
-}
+  
+
+

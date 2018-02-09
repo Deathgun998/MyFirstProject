@@ -1,5 +1,6 @@
 import { Component,EventEmitter, Input,Output } from '@angular/core';
 import { Nuovofile } from '../nuovofile';
+import { ComunicatorService } from '../comunicator.service';
 
 
 
@@ -13,8 +14,9 @@ export class ListComponent {
   @Input()
   items: Nuovofile[] ;
 
-  @Output()
-  EventEmitterNuovofile = new EventEmitter<Nuovofile>();
+ constructor(private comunicatorService: ComunicatorService){
+
+ }
 
 ngOnInit() {
   this.items.push(new Nuovofile());
@@ -26,6 +28,7 @@ ngOnDestroy() {
 }
 
    cliccami(item: Nuovofile){
-     this.EventEmitterNuovofile.emit(item)
+     //chiamo il next nel subject
+     this.comunicatorService.changeSubject(item);
     }
 }
