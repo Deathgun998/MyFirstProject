@@ -16,6 +16,15 @@ export class ListComponent {
   @Output()
   EventEmitterNuovofile = new EventEmitter<Nuovofile>();
 
+ngOnInit() {
+  this.items.push(new Nuovofile());
+  
+}
+ngOnDestroy() {
+ 
+  
+}
+
    cliccami(item: Nuovofile){
      this.EventEmitterNuovofile.emit(item)
     }
