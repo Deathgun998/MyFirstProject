@@ -1,4 +1,5 @@
 import { Component,EventEmitter, Input,Output } from '@angular/core';
+import { Router} from '@angular/router';
 import { Nuovofile } from '../nuovofile';
 import { ComunicatorService } from '../comunicator.service';
 import { ListService } from '../list.service';
@@ -15,7 +16,7 @@ export class ListComponent {
 
   items: Nuovofile[] ;
 
- constructor(private comunicatorService: ComunicatorService, private listService: ListService){
+ constructor(private router: Router, private listService: ListService){
 
  }
 
@@ -29,7 +30,6 @@ ngOnDestroy() {
 }
 
    cliccami(item: Nuovofile){
-     //chiamo il next nel subject
-     this.comunicatorService.changeSubject(item);
+    this.router.navigate(['/detail/'+item.id]);
     }
 }
