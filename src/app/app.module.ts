@@ -8,6 +8,7 @@ import { ListService } from './list.service';
 import { DetailComponent } from './detail/detail.component';
 import { ComunicatorService } from './comunicator.service';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     ListComponent,
     DetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
