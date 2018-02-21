@@ -1,6 +1,7 @@
 import { Component,EventEmitter, Input,Output } from '@angular/core';
 import { Nuovofile } from '../nuovofile';
 import { ComunicatorService } from '../comunicator.service';
+import { ListService } from '../list.service';
 
 
 
@@ -11,15 +12,15 @@ import { ComunicatorService } from '../comunicator.service';
 export class ListComponent {
  
 
-  @Input()
+
   items: Nuovofile[] ;
 
- constructor(private comunicatorService: ComunicatorService){
+ constructor(private comunicatorService: ComunicatorService, private listService: ListService){
 
  }
 
 ngOnInit() {
-  this.items.push(new Nuovofile());
+  this.items = this.listService.getNuovofile();
   
 }
 ngOnDestroy() {
